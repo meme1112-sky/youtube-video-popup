@@ -1,92 +1,100 @@
-# MyReactNativeApp
+# YouTube Clone - React Native Web App
 
-A React Native project with **full TypeScript support** and a well-organized structure.
+A modern, responsive YouTube clone built with React Native that runs seamlessly on both mobile and web platforms. This application provides a YouTube-like experience with video browsing, search functionality, and an intuitive user interface.
 
-## Project Structure
+## 🚀 Features
 
-```
-MyReactNativeApp/
-├── src/
-│   ├── components/          # Reusable UI components (TypeScript)
-│   │   ├── Header.tsx
-│   │   ├── Button.tsx
-│   │   └── Card.tsx
-│   ├── screens/             # Screen components (TypeScript)
-│   │   ├── HomeScreen.tsx
-│   │   └── ProfileScreen.tsx
-│   ├── navigation/          # Navigation configuration
-│   ├── services/            # API and external services (TypeScript)
-│   │   ├── ApiService.ts
-│   │   └── StorageService.ts
-│   ├── utils/               # Utility functions (TypeScript)
-│   │   └── index.ts
-│   ├── constants/           # App constants (TypeScript)
-│   │   └── index.ts
-│   ├── types/               # TypeScript type definitions
-│   │   └── index.ts
-│   └── assets/              # Static assets
-│       ├── images/
-│       └── fonts/
-├── web/                     # Web-specific files (TypeScript)
-│   ├── index.tsx
-│   └── index.html
-├── android/                 # Android-specific code
-├── ios/                     # iOS-specific code
-├── App.tsx                  # Main app component (TypeScript)
-├── index.tsx               # App entry point (TypeScript)
-├── tsconfig.json            # TypeScript configuration
-├── tsconfig.web.json        # Web-specific TypeScript config
-├── package.json             # Dependencies and scripts
-├── babel.config.js          # Babel configuration
-├── metro.config.js          # Metro bundler configuration
-├── webpack.config.js        # Webpack configuration (TypeScript support)
-├── jest.config.js           # Jest testing configuration
-├── .eslintrc.js             # ESLint configuration
-├── .prettierrc.js           # Prettier configuration
-└── .gitignore               # Git ignore rules
-```
+### Core Functionality
+- **Video Discovery**: Browse popular YouTube videos with real-time data
+- **Advanced Search**: Search for videos using YouTube's API
+- **Infinite Scroll**: Automatic loading of more videos as you scroll
+- **Category Filtering**: Filter content by categories (Music, Comedy, History, etc.)
+- **Responsive Design**: Optimized for both desktop and mobile viewing
 
-## Getting Started
+### User Interface
+- **Modern Header**: Clean search bar with voice search and app launcher
+- **Video Grid**: Card-based layout with hover effects and video previews
+- **Interactive Elements**: Watch later, add to queue, and more options
+- **Live Streaming Support**: Special indicators for live content
+- **Loading States**: Smooth loading animations and error handling
 
-### Prerequisites
+### Technical Features
+- **Cross-Platform**: React Native with Web support via react-native-web
+- **TypeScript**: Full type safety and better development experience
+- **Custom Hooks**: Reusable data fetching logic with `useYouTubeData`
+- **API Integration**: Direct integration with YouTube Data API v3
+- **Responsive Layout**: Adaptive grid system for different screen sizes
 
-- Node.js (>= 16)
-- React Native CLI
-- Android Studio (for Android development)
-- Xcode (for iOS development, macOS only)
-- YouTube API Key (for real video data)
+## 📱 Screenshots
 
-### Installation
+The app features a clean, modern interface similar to YouTube with:
+- Header with search functionality and user controls
+- Horizontal category filter bar
+- Responsive video grid with hover effects
+- Video cards showing thumbnails, titles, channel info, and metadata
 
-1. Install dependencies:
-```bash
-npm install
-```
+## 🛠️ Technology Stack
 
-2. For iOS (macOS only):
-```bash
-cd ios && pod install && cd ..
-```
+- **Frontend**: React Native 0.72.6
+- **Web Support**: react-native-web
+- **Language**: TypeScript
+- **Bundling**: Webpack 5
+- **API**: YouTube Data API v3
+- **State Management**: React Hooks
+- **Styling**: React Native StyleSheet
 
-### YouTube API Setup
+## 📋 Prerequisites
 
-1. Go to [Google Cloud Console](https://console.developers.google.com/)
-2. Create a new project or select existing one
-3. Enable the YouTube Data API v3
-4. Create credentials (API Key)
-5. Copy your API key
+Before running this application, ensure you have:
 
-6. Create `.env.local` file in root directory:
-```bash
-REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
-```
+- **Node.js**: Version 16 or higher
+- **npm**: Package manager
+- **YouTube API Key**: Get one from [Google Cloud Console](https://console.developers.google.com/)
 
-### Running the App
+## 🔧 Installation
 
-#### Web (with YouTube API)
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd frontend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   cp env.example .env.local
+   ```
+   
+   Edit `.env.local` and add your YouTube API key:
+   ```env
+   REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key_here
+   ```
+
+4. **Get YouTube API Key**
+   - Go to [Google Cloud Console](https://console.developers.google.com/)
+   - Create a new project or select existing one
+   - Enable YouTube Data API v3
+   - Create credentials (API Key)
+   - Copy the API key to your `.env.local` file
+
+## 🚀 Running the Application
+
+### Web Development
 ```bash
 npm run web
 ```
+The app will open at `http://localhost:3000`
+
+### Web Production Build
+```bash
+npm run web:build
+```
+
+### Mobile Development
 
 #### Android
 ```bash
@@ -98,44 +106,135 @@ npm run android
 npm run ios
 ```
 
-#### Start Metro Bundler
+### Other Commands
 ```bash
+# Start Metro bundler
 npm start
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+
+# Testing
+npm test
+
+# Clean cache
+npm run clean
 ```
 
-## Available Scripts
+## 📁 Project Structure
 
-- `npm start` - Start Metro bundler
-- `npm run android` - Run on Android
-- `npm run ios` - Run on iOS
-- `npm test` - Run tests
-- `npm run lint` - Run ESLint
+```
+frontend/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── CategoryFilter.tsx
+│   │   ├── ModernHeader.tsx
+│   │   ├── VideoCard.tsx
+│   │   ├── VideoGrid.tsx
+│   │   └── VideoHoverPopup.tsx
+│   ├── hooks/               # Custom React hooks
+│   │   └── useYouTubeData.ts
+│   ├── services/           # API services
+│   │   └── YouTubeService.ts
+│   ├── config/             # Configuration files
+│   │   └── environment.ts
+│   └── assets/             # Static assets
+├── web/                    # Web-specific files
+│   ├── index.html
+│   ├── index.tsx
+│   └── WebApp.tsx
+├── android/                # Android-specific code
+├── ios/                    # iOS-specific code
+├── App.tsx                 # Main app component
+├── package.json
+└── webpack.config.js       # Webpack configuration
+```
 
-## Project Features
+## 🔌 API Integration
 
-- ✅ Organized folder structure
-- ✅ Reusable components
-- ✅ Sample screens
-- ✅ API service layer
-- ✅ Storage service
-- ✅ Utility functions
-- ✅ Constants management
-- ✅ TypeScript support
-- ✅ ESLint and Prettier configuration
-- ✅ Jest testing setup
+The app integrates with YouTube Data API v3 to provide:
 
-## Development Guidelines
+- **Popular Videos**: Fetch trending content
+- **Search Results**: Search for specific videos
+- **Video Details**: Thumbnails, duration, view counts, channel info
+- **Pagination**: Load more results with next page tokens
 
-1. **Components**: Place reusable UI components in `src/components/`
-2. **Screens**: Place screen components in `src/screens/`
-3. **Services**: Place API calls and external services in `src/services/`
-4. **Utils**: Place utility functions in `src/utils/`
-5. **Constants**: Place app constants in `src/constants/`
-6. **Types**: Place TypeScript definitions in `src/types/`
+### API Endpoints Used
+- `GET /videos` - Popular videos
+- `GET /search` - Search videos
+- `GET /channels` - Channel information
 
-## Contributing
+## 🎨 Customization
 
-1. Follow the existing code structure
-2. Use ESLint and Prettier for code formatting
-3. Write tests for new features
-4. Update documentation as needed
+### Adding New Categories
+Edit the categories array in `web/WebApp.tsx`:
+```typescript
+const categories = [
+  'All',
+  'Your New Category',
+  // ... existing categories
+];
+```
+
+### Styling
+All styles are defined using React Native's StyleSheet API. Modify component styles directly in their respective files.
+
+### API Configuration
+Update API settings in `src/config/environment.ts`:
+```typescript
+export const YOUTUBE_API_KEY = "your_api_key";
+```
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **API Key Issues**
+   - Ensure your YouTube API key is valid
+   - Check that YouTube Data API v3 is enabled
+   - Verify the API key has proper permissions
+
+2. **Build Issues**
+   - Clear cache: `npm run clean`
+   - Delete node_modules and reinstall: `rm -rf node_modules && npm install`
+
+3. **Web Development Issues**
+   - Ensure port 3000 is available
+   - Check webpack configuration
+
+## 📝 Development Notes
+
+- The app uses React Native's cross-platform components
+- Web-specific features are handled via platform detection
+- All API calls are made through the custom `YouTubeService`
+- State management is handled with React hooks
+- TypeScript provides type safety across the codebase
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🔗 Links
+
+- [React Native Documentation](https://reactnative.dev/)
+- [YouTube Data API](https://developers.google.com/youtube/v3)
+- [React Native Web](https://github.com/necolas/react-native-web)
+
+## 📞 Support
+
+For support and questions, please contact the development team or create an issue in the repository.
+
+---
+
+**Built with ❤️ using React Native and TypeScript**
