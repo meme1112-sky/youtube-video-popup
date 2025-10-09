@@ -10,9 +10,9 @@
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
     "type-check:watch": "tsc --noEmit --watch",
-    "start": "react-native start",
-    "start:reset": "react-native start --reset-cache",
-    "start:port": "react-native start --port 8082",
+    "start": "node init && react-native start",
+    "start:reset": "node init && react-native start --reset-cache",
+    "start:port": "node init && react-native start --port 8082",
     "clean": "npx react-native clean",
     "test": "jest"
   },
